@@ -1,4 +1,4 @@
-package model;
+package org.example.dreamy.model;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
