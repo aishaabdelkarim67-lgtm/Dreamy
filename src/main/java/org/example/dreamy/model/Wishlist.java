@@ -68,4 +68,9 @@ public class Wishlist {
     public void setWishes(List<Wish> wishes) {
         this.wishes = wishes;
     }
+
+    public void addWish(Wish wish) {
+        wishes.add(wish);
+        wish.setWishlist(this);
+    }
 }
