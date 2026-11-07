@@ -13,6 +13,7 @@ public class Wishlist {
 
     private String name;
     private String description;
+    private String shareId;
 
     @ManyToOne
     private User user;
@@ -72,5 +73,13 @@ public class Wishlist {
     public void addWish(Wish wish) {
         wishes.add(wish);
         wish.setWishlist(this);
+    }
+
+    public String getShareId() {
+        return shareId;
+    }
+
+    public void setShareId(String shareId) {
+        this.shareId = shareId;
     }
 }

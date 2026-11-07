@@ -4,6 +4,7 @@ import org.example.dreamy.model.Wishlist;
 import org.example.dreamy.repository.WishListRepository;
 import org.springframework.stereotype.Service;
 import org.example.dreamy.model.Wish;
+import java.util.UUID;
 
 import java.util.List;
 
@@ -46,7 +47,18 @@ public Wishlist saveWishlist(Wishlist wishlist){
 // Slet en ønskeliste
 public void deleteWishlist(long id){
     wishListRepository.deleteById(id);}
+
+
+// Deler en ønskeseddel
+public Wishlist shareWishlist(long id) {
+    Wishlist wishlist = getWishlistById(id);
+    wishlist.setShareId(UUID.randomUUID().toString());
+    return wishListRepository.save(wishlist);
 }
+}
+
+
+
 
 
 
