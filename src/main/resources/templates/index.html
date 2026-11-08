@@ -5,7 +5,10 @@
     <meta name="viewport"
     content="width=device-width, initial-scale=1.0">
     <title>Dreamy - Forside</title>
-    <link rel="stylesheet" th:herf="@{/style.css}" href="style.css">
+    <link rel="stylesheet"
+          href="/Dreamy/src/main/resources/static/style.css"
+          th:href="@{/style.css}">
+
 
 </head>
 
@@ -16,7 +19,7 @@
     <h1> 🌸Dreamy</h1>
     <nav>
         <a th:herf="@{/}">Forside</a>
-        <a th:href="@/wishlists/new">
+        <a th:href="{@/wishlists/new}">
             Opret ønskeseddel
         </a>
     </nav>
@@ -50,7 +53,7 @@
                     Min ønskeseddel
                 </h3>
 
-                <a th:herf="@{/wishlists/{id}(id={wishlists.id)}">
+                <a th:herf="@{/wishlists/{id}(id=${wishlists.id})}">
                     Se ønsker
                 </a>
 
