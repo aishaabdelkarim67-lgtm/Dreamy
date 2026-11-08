@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=decice-width, initial-scale=1.0">
+    <title>Opret ønskeseddel - Dreamy</title>
+    <link rel="stylesheet" th:href="@{style.css}"
+          href="/style.css">
+</head>
+<body>
+<header class="header">
+  <h1>🌸Dreamy</h1>
+
+  <nav>
+    <a th:href="@{/}">Forside</a>
+    <a th:href="@{/wishlists/new}">
+      Opret ønskeseddel
+    </a>
+  </nav>
+</header>
+<main class="container">
+
+  <div class="form-card">
+    <h2>Opret din ønskeseddel  🎀</h2>
+    <p>Giv din ønskeseddel et navn </p>
+
+    <form th:action="@{/wishlists}" method="post">
+      <label for="name">Navn på ønskeseddel</label>
+      <input type="text"
+             id="name"
+             name="name"
+             placeholder="fx Min fødseldag"
+             maxlength="100"
+             required>
+      <button type="submit">
+        Gem ønskeseddel 💗
+      </button>
+    </form>
+    <a th:href ="@{/}">Tilbage til forsiden</a>
+
+  </div>
+
+</main>
+
+</body>
+</html>
