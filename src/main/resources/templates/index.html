@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+    <title>Dreamy - Forside</title>
+    <link rel="stylesheet"
+          href="/Dreamy/src/main/resources/static/style.css"
+          th:href="@{/style.css}">
+
+
+</head>
+
+<body>
+
+<header class="header">
+
+    <h1> 🌸Dreamy</h1>
+    <nav>
+        <a th:herf="@{/}">Forside</a>
+        <a th:href="{@/wishlists/new}">
+            Opret ønskeseddel
+        </a>
+    </nav>
+</header>
+
+<main>
+    <section class="hero">
+        <h2>Velkommen til dreamy 💗ྀི</h2>
+        <p>
+            Her kan du samle alle dine ønsker ét sted.
+        </p>
+        <a class="button" th:href="@{/wishlists/new}">
+            Opret ønskeseddel
+
+        </a>
+
+
+    </section>
+
+    <section class="container">
+        <h2>Mine ønskesedler 🎀</h2>
+        <p th:if="${#lists.isEmpty(wishlists)}">
+        Du har ingen ønskesedler endnu.
+
+        </p>
+        <div class="card-container">
+
+            <div class="card"
+                 th:each="wishlist : ${wishlists}">
+                <h3 th:text="${wishlist.name}">
+                    Min ønskeseddel
+                </h3>
+
+                <a th:herf="@{/wishlists/{id}(id=${wishlists.id})}">
+                    Se ønsker
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+</main>
+
+</body>
+</html>
