@@ -1,41 +1,60 @@
 
-#-------------------------------------------------------------------------------#
-#            Discover all capabilities of Qodana in our documentation           #
-#             https://www.jetbrains.com/help/qodana/about-qodana.html           #
-#-------------------------------------------------------------------------------#
-
-name: Qodana
+name: Dreamy CI
 
 on:
-  workflow_dispatch:
-  pull_request:
   push:
     branches:
       - master
-      - feature/backend
+      - 'feature/**'
+
+  pull_request:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+  checks: write
 
 jobs:
-  qodana:
+  build-and-test:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      checks: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          java-version: '21'
+          distribution: temurin
+          cache: maven
+
+      - name: Build and run tests
+        run: mvn -B clean verify
+
+  qodana:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
           fetch-depth: 0
 
-      - name: 'Qodana Scan'
+      - name: Qodana Scan
         uses: JetBrains/qodana-action@v2026.1
         env:
           QODANA_TOKEN: ${{ secrets.QODANA_TOKEN }}
         with:
+          args: --linter, qodana-jvm
           pr-mode: false
           use-caches: true
           post-pr-comment: true
           use-annotations: true
-          upload-result: false
+          upload-result: true
           push-fixes: 'none'
