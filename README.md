@@ -21,6 +21,7 @@ her beskriver vi Dreamy;
 - Azure
 - Github
 - Github Actions
+- 
 
 ##Projektstruktur
 projektet er opdelt i følgende pakker
@@ -52,7 +53,8 @@ Spring Data JPA anvendes til at kommunikere med databasen
 
 ##Deployment
 Applikationen er tiltænkt deployment til Microsoft Azure
-Link til den kørende applikation:
+Link til den kørende applikation:https://dreamy-gruppe-6-ftd8fjfdbjchagf8.swedencentral-01.azurewebsites.net/
+
 
 ##Test
 projektet indeholder følgende testområder
