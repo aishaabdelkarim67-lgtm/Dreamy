@@ -21,11 +21,7 @@ public class WishController {
                 + " fra ønskeseddel " + wishlistId;
     }
 
-    // Tilføj et nyt ønske
-    @PostMapping
-    public String createWish(@PathVariable int wishlistId) {
-        return "Tilføjer et ønske til ønskeseddel: " + wishlistId;
-    }
+
 
     // Slet et ønske
     @DeleteMapping("/{wishId}")

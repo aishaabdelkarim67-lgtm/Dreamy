@@ -7,8 +7,8 @@
           content="width=device-width, initial-scale=1.0">
     <title>Mine ønsker - Dreamy</title>
     <link rel="stylesheet"
-          th:href="@{/style.css}"
-          href="/style.css">
+          href="../static/style.css"
+          th:href="@{/style.css}">
 
 
 </head>
@@ -60,7 +60,7 @@
             </label>
 
             <input
-                type="url"
+                type="text"
                 id="link"
                 name="link"
                 placeholder="http://...">
@@ -85,8 +85,8 @@
 
         </p>
 
-        <a th:if="${wish.link != null and !wish.link.isEmpty()}"
-           th:href="${wish.link}"
+        <a th:if="${wish.productUrl != null and !wish.productUrl.isEmpty()}"
+              th:href="${wish.productUrl}"
            target="_blank"
            rel="noopener noreferrer">
            Se produkt

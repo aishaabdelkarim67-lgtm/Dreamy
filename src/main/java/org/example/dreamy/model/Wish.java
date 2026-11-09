@@ -12,6 +12,7 @@ public class Wish {
     private String name;
     private String description;
     private double price;
+    @Column(length = 2048)
     private String productUrl;
 
   @ManyToOne
