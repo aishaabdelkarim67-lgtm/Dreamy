@@ -5,8 +5,8 @@ USE dreamy_db;
 
 -- 1. Brugere
 CREATE TABLE IF NOT EXISTS users (
-                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                     name VARCHAR(255),
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
     email VARCHAR(255),
     password VARCHAR(255)
     );
@@ -14,8 +14,8 @@ CREATE TABLE IF NOT EXISTS users (
 -- 2. Ønskesedler
 
 CREATE TABLE IF NOT EXISTS wishlist (
-                                        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                        name VARCHAR(255),
+   id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
     description VARCHAR(255),
     share_id VARCHAR(255),
     user_id BIGINT,
@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS wishlist (
 
 -- 3. Ønsker
 CREATE TABLE IF NOT EXISTS wish (
-                                    id BIGINT AUTO_INCREMENT PRIMARY KEY,
-                                    name VARCHAR(255),
+   id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
     description VARCHAR(255),
     price DOUBLE,
     product_url VARCHAR(255),
